@@ -27,8 +27,9 @@ router.post("/api/burgers/:name",(req,res)=>{
 
 });//post
 
-router.put("/api/burgers/:id",(req,res)=>{
-    burger.updateBurger(req.params.id,data=>{
+router.put("/api/burgers",(req,res)=>{
+    console.log("test");
+    burger.updateBurger(req.body.id,data=>{
         if(data.changedRows== 0){
             return res.status(404).end();
         }
