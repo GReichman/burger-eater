@@ -10,6 +10,7 @@ const burgOrm = {
         orm.insertOne("burgers","burger_name",name,cb)
     },
     updateBurger: function(id,cb){
+        
         orm.updateOne("burgers","devoured",1,"id",id,cb);
     }
 }

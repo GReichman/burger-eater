@@ -14,22 +14,19 @@ router.get("/",(req,res)=>{
             eaten:eaten,
             uneaten:uneaten
         };
-        console.log(hbsObject);
         res.render("index",hbsObject);
     });
 });//get
 
 router.post("/api/burgers/:name",(req,res)=>{
     burger.insertBurger(req.params.name,data=>{
-        console.log(data);
         res.json({id: data.insertId});
     });
 
 });//post
 
-router.put("/api/burgers",(req,res)=>{
-    console.log("test");
-    burger.updateBurger(req.body.id,data=>{
+router.put("/api/burgers/:id",(req,res)=>{
+    burger.updateBurger(req.params.id,data=>{
         if(data.changedRows== 0){
             return res.status(404).end();
         }
